@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Order Confirmation</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        height: 100vh;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #4f5ef1;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: #ffffff;
+      }
+      .message {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 20px;
+        padding-top: 50px;
+      }
+      .message-sm {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 20px;
+        padding-top: 50px;
+      }
+      .message-sm > h1 {
+        text-align: center;
+        font-size: 25px;
+        font-weight: 600;
+      }
+      .course-info {
+        margin: auto;
+        padding: 20px 0px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 2px 2px 2px 2px rgba(206, 197, 197, 0.1);
+        color: #000;
+      }
+      .course-info > h4 {
+        color: #23bd70;
+        font-size: 22px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        text-align: center;
+        padding: 0 !important;
+        margin-top: 0 !important;
+      }
+      .course-name {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .purchase-info {
+        font-size: 16px;
+      }
+      .total {
+        font-size: 18px;
+        text-align: right;
+        margin-top: 20px;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 100px;
+        color: #fff;
+      }
+      .footer > p > a {
+        text-decoration: none;
+        display: inline-block;
+        color: #fff;
+      }
+      .flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #9999993f;
+      }
+      .flex h4 {
+        font-weight: 400;
+        margin-bottom: 5px;
+      }
+      .flex.lg {
+        width: 85%;
+        margin: auto;
+        border-bottom: none;
+      }
+      .first-td {
+        text-transform: uppercase;
+        color: #0000006c;
+        font-size: 16px;
+        padding: 5px 0px;
+        width: 1%;
+      }
+      .first-td {
+        font-weight: 600 !important;
+      }
+      .second-td {
+        font-weight: 500 !important;
+        color: #000000af;
+        font-size: 15px;
+      }
+      .title {
+        font-size: 16px !important;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      td {
+        padding: 10px;
+        text-align: center;
+        width: 28.33%;
+      }
+      td.col-2 {
+        width: 100%;
+        text-align: left;
+        padding: 0px;
+        margin: 0;
+      }
+      .m-auto {
+        width: 100%;
+        margin: auto;
+      }
+      .table-row {
+        width: 70%;
+        display: block;
+        margin: auto;
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="message-sm">
+        <h1>Your ELearning order is confirmed!</h1>
+        <p>And we're just as excited as you are.</p>
+      </div>
+      <br>
+      <br>
+      <div class="course-info">
+        <h4>Here's what you ordered:</h4>
+         <table style="border-bottom: 1px solid #0000002f;">
+            <tr>
+                <td>
+                    Order #: <%= order._id %>
+                </td>
+                <td>
+                        Order Date: <%= order.date %>
+                </td>
+            </tr>
+         </table>
+        <table style="width: 90%; margin: auto; display: block">
+          <tr>
+            <td class="first-td">Item</td>
+            <td class="first-td">Qty</td>
+            <td class="first-td">cost</td>
+          </tr>
+        </table>
+
+        <table style="width: 90%; margin: auto; display: block">
+          <tr>
+            <td class="second-td"><%= order.name %></td>
+            <td class="second-td">1</td>
+            <td class="second-td">$<%= order.price %></td>
+          </tr>
+        </table>
+
+        <table class="table-row"
+        style="border-top: 1px solid #00000029;"
+        >
+          <tr>
+            <td class="col-2">Subtotal:</td>
+            <td class="col-2">$<%= order.price %></td>
+          </tr>
+        </table>
+        <table class="table-row" style="margin-top: -20px;">
+            <tr>
+                <td class="col-2">Total:</td>
+                <td class="col-2">$<%= order.price %></td>
+              </tr>
+        </table>
+      </div>
+      <div class="footer">
+        <p>
+          If you have any questions, please contact our support team at
+          <a href="mailto:support@becodemy.com">support@becodemy.com</a>
+        </p>
+        <p>&copy; 2023 Elearning. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>
